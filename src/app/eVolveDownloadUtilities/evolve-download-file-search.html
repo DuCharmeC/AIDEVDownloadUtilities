@@ -1,0 +1,38 @@
+<!-- Original Section
+<div class="container" id="aidevutilities">
+    <h6>Retrieve xml payload by policy number</h6>
+    <p>Enter the policy Number for the xml payload you wish to retrieve.</p>
+    <label for="externalReference">External Reference/Policy Number</label>
+    <input type="text" name="externalReference" #externalReference>
+    <button type="submit" (click)="postTransactionPayloadByExternalRef(externalReference.value)">Submit</button>
+</div>
+
+<div>
+    <h1>save as test</h1>
+  <button (click)="SaveDemo()">Save File</button>
+</div>
+<div>
+    <button type="submit" (click)="getTransactionPayloadByExternalRef()">Get</button>
+</div>
+-->
+
+  <!--<div class="row min-vh-100 flex-column flex-sm-row">-->
+    
+    <div class="fixed-top col-md-3 p-1 bg-dark">
+        <h6>Download Transaction Payload Search</h6>
+          <!--<h6 class="ui header">eVolve transaction search by policy number</h6>-->
+          <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="ui form">
+            <div class="field">
+              <label for="externalReference">External Reference/Policy Number</label>
+              <input type="text"  
+                     id="externalReference"  
+                     placeholder="Policy Number"  
+                     [formControl]="myForm.controls['externalReference']">  
+            </div>
+            <button type="submit" class="ui button">Submit</button>
+          </form>
+          <div>{{xmlString}}</div>
+    </div>
+        
+  <!--</div>-->
+
