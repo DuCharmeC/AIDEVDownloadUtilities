@@ -1,0 +1,133 @@
+<!--
+<ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link active" routerLink="/evolvedownloadfilesearch">eVolve Download File Search</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/agencyinformationeditor">Agency Information Editor</a>
+    </li>
+    <li class="nav-item">
+      <button class="button" (click)="authService.logout()">Logout</button>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+  </ul>
+-->
+
+<!--
+  Old Original 
+  <div class="container-fluid">
+  <div class="row min-vh-100 flex-column flex-md-row">
+      <aside class="col-12 col-md-2 p-0 bg-dark flex-shrink-1">
+          <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start py-2">
+              <div class="collapse navbar-collapse ">
+                  <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
+                    <li class="nav-item">
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn btn-secondary" id="dropdownBasic1" ngbDropdownToggle>Agency Utilities</button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                              <button ngbDropdownItem routerLink="/agencysearch">Agency Search</button>
+                              <button ngbDropdownItem routerLink="/agencyinformationaudit">Agency Information Audit</button>
+                            </div>
+                        </div>
+                    </li>
+                      <li class="nav-item">
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn btn-secondary" id="dropdownBasic1" ngbDropdownToggle>eVolve Download Utilities</button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                              <button ngbDropdownItem routerLink="/evolvedownloadfilesearch">Transaction Payload Search</button>
+                            </div>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link pl-0" href="#"><i class="fa fa-star fa-fw"></i> <span class="d-none d-md-inline">Link</span></a>
+                      </li>
+                  </ul>
+              </div>
+          </nav>
+      </aside>
+      <main class="col bg-faded py-3 flex-grow-1">
+      </main>
+  </div>
+</div>
+-->
+
+<!-- *** GOOD EXAMPLE ***
+  <nav class="navbar border navbar-default bg-dark fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed btn-secondary" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Project name</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="../navbar/">Default</a></li>
+        <li><a href="../navbar-static-top/">Static top</a></li>
+        <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+      </ul>
+    </div>  <<<<Nav collapse
+  </div>
+</nav>
+-->
+
+  <nav class="navbar border navbar-default bg-dark fixed-top">
+    <div class="col-sm-4 container pull-left" id="navbarDivContainer">
+      <div class="navbar-header">
+        <button type="button" class="btn btn-secondary navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          AIDEV Utilities
+       </button>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download Utilities<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Evolve related functions</li>
+              <li><a routerLink="/evolvedownloadfilesearch">Search Transaction Payloads</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agency Utilities<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/agencysearch">Agency Editor</a></li>
+              <li><a routerLink="/agencydelete">Agency Removal</a></li>
+              <li><a routerLink="/agencycreate"></a></li>
+              <hr>
+              <li class="dropdown-header">View a history of changes for an agency</li>
+              <li><a routerLink="/agencyinformationaudit">Agency Information Audit</a></li>
+            </ul>
+          </li>
+          <li><a routerLink="#">-</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+
+
+  
+
+
