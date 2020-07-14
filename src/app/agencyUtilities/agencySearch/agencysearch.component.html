@@ -1,0 +1,230 @@
+<div class="container-fluid pt-5" id="agencySearchContainer">
+    <div class="row pt-5 min-vh-50 flex-column flex-md-row">
+        
+        <main class="col pt-5 bg-faded" id="agencySearchMain">
+            <div class="container h-10 border">
+                <div class="row h-5 justify-content-left">
+                    <p>Search for an agency using the five digit agency code.</p>
+                </div>
+                <div class="row h-25">
+                    <form id="agencySearchForm"
+                    (ngSubmit)="submitAgencySearch(agencyInformationAgencyCode.value)">
+                        <label for="agencyInformationAgencyCode">Agency Code</label>
+                        <input type="text" name="agencyInformationAgencyCode" class="mx-2 my-2" #agencyInformationAgencyCode>
+                        <button type="submit" class="btn btn-secondary mx-2 my-2" id="btnAgencySearchSubmit">Search</button>
+                        <!-- route to agency create component-->
+                        <button type="button" class="btn btn-secondary mx-2 my-2" routerLink="/agencycreate">Add New Agency</button>
+                        <button type="button" class="btn btn-secondary mx-2 my-2" (click)="submitAgencyDelete()">Remove Agency</button>
+                    </form>
+                </div>
+                <!-- <div *ngIf="agencyInformation">
+                    <div *ngFor="let singleAgency of agencyInformation">
+                    {{singleAgency.password}}
+                    </div>
+                </div>-->
+            </div>
+            <!--<div *ngIf="this.agencyInformation" class="container border">-->
+            <div [hidden]="!isEditFormDisplayed" class="container border">
+                <form (ngSubmit)="submitAgencyEdit()" [formGroup]="this.editForm" id="agencyEditForm">
+                    <div class="form-row">
+                        <h6>Agency Contact Information</h6>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-2">
+                            <label for="agencyCode">Agency Code</label>
+                            <input type="text" class="form-control" id="agencyCode" formControlName="agencyCode">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="agencyName">Agency Name</label>
+                            <input type="text" class="form-control" id="agencyName" formControlName="agencyName">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="formalAddress">Formal Address</label>
+                            <input type="text" class="form-control" id="formalAddress" formControlName="formalAddress" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label for="informalAddress">Informal Address</label>
+                            <input type="text" class="form-control" id="informalAddress" formControlName="informalAddress" />
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="destinationAddress">Destination Address</label>
+                            <input type="text" class="form-control" id="destinationAddress" formControlName="destinationAddress" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-3">
+                            <label for="address1">Address 1</label>
+                            <input type="text" class="form-control" id="address1" formControlName="address1">
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <label for="address2">Address 2</label>
+                            <input type="text" class="form-control" id="address2" formControlName="address2">
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <label for="emailAddress">Email Address</label>
+                            <input type="text" class="form-control" id="emailAddress" formControlName="emailAddress" />
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber" />
+                        </div>
+                    </div>
+                    <!--Agency Download Indicators Link -->
+                    <div class="form-row">
+                        <div class="form-group col-sm-2">
+                            <label for="closeDate">Date Closed</label>
+                            <input type="text" class="form-control" id="closeDate" formControlName="closeDate">
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="suspendDate">Date Suspended</label>
+                            <input type="text" class="form-control" id="suspendDate" formControlName="suspendDate">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h6>Ivans Information</h6>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-2">
+                            <label for="ivansYAccount">Y Account</label>
+                            <input type="text" class="form-control" id="ivansYAccount" formControlName="ivansYAccount">
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="ivansUserId">User ID</label>
+                            <input type="text" class="form-control" id="ivansUserId" formControlName="ivansUserId">
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <label for="ivansOriginalAddress">Original Address</label>
+                            <input type="text" class="form-control" id="ivansOriginalAddress" formControlName="ivansOriginalAddress" />
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <label for="password">Password</label>
+                            <input type="text" class="form-control" id="password" formControlName="password" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h6>Download Configuration</h6>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-4">
+                            <label for="agencyPreferences">Indicators:</label>
+                            <input type="text" class="form-control" id="agencyPreferences" formControlName="agencyPreferences" />
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <button type="button" class="btn btn-secondary mx-2 my-4" (click)="showIndicatorsForm(agencyInformationAgencyCode.value)">Configure Download Indicators</button>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-2">
+                            <label for="amsProduct">AMS Product</label>
+                            <input type="text" class="form-control" id="amsProduct" formControlName="amsProduct">
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="amsVersion">AMS Version</label>
+                            <input type="text" class="form-control" id="amsVersion" formControlName="amsVersion">
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="contractNumber">Contract Number</label>
+                            <input type="text" class="form-control" id="contractNumber" formControlName="contractNumber" />
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="messageSeq">Message Seq</label>
+                            <input type="text" class="form-control" id="messageSeq" formControlName="messageSeq" />
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="tranSeq">Trans Seq</label>
+                            <input type="text" class="form-control" id="tranSeq" formControlName="tranSeq" />
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="initialLoad">Initial Load</label>
+                            <input type="text" class="form-control" id="initialLoad" formControlName="initialLoad" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-2">
+                            <label for="format">Format</label>
+                            <input type="text" class="form-control" id="format" formControlName="format">
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="acordCSIOCompression">Acord CSIO</label>
+                            <input type="text" class="form-control" id="acordCSIOCompression" formControlName="acordCSIOCompression">
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="ebcdic">EBCDIC</label>
+                            <input type="text" class="form-control" id="ebcdic" formControlName="ebcdic" />
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="crlf">CRLF</label>
+                            <input type="text" class="form-control" id="crlf" formControlName="crlf" />
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="communications">Communications</label>
+                            <input type="text" class="form-control" id="communications" formControlName="communications" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="btn-toolbar" role="toolbar">
+                            <div class="btn-group mr-2" role="group">
+                                <button type="submit" class="btn btn-secondary">Submit Edit</button>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-secondary" (click)="this.clear()">Clear</button>
+                            </div>
+                        </div>  
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>    
+
+<!-- Agency Indicators / Download Preferences Form -->
+<div [hidden]="!isIndicatorsFormDisplayed"  class="container-fluid border" id="agencyIndicatorsContainer">
+    <div class="row pt-5 min-vh-50 flex-column flex-md-row justify-content-left">
+        <form [formGroup]="this.indicatorsForm">
+            <div class="form-row">
+                
+            </div>
+            <!--<div *ngFor="let indicator of map | keyvalue">
+                {{item.key}}:{{item.value}}
+            </div>-->
+            <!--
+                <div class="form-row" *ngFor="let indicator of agencyIndicators">
+                {{indicator.name}}
+                <button type="button" class="btn btn-secondary mx-2 my-2" (click)="removeIndicator(indicator)">Remove</button>                
+            </div>
+            -->           
+            <div class="form-row" >
+                <div class="form-group">
+                    <label for="dropdownIndicators">Download Indicators</label>
+                    <select  class="form-control" (change)="onIndicatorNameSelect()" id="dropdownIndicators">
+                        <option *ngFor="let indicator of agencyIndicators" [ngValue]="indicator">
+                            {{indicator.name}}
+                        </option>
+                    </select>
+                </div>                
+            </div>
+
+
+
+            <!-- <select class="form-control"  [(ngModel)]="agencyIndicators">
+                <option *ngFor="let indicator of agencyIndicators" [value]="agencyIndicators">
+                    {{indicator.name}}
+                </option>
+            </select>-->               
+            <div>
+                <!-- Approximate 
+                <select multiple formControlName="topics">
+                    <option disabled>ex</option>
+                    <option>ex</option>
+                    <option *ngFor="let indicator of agencyIndicators">{{indicator.transactionTypes}}</option>
+                </select> -->
+
+            </div>
+            <div class="form-row">
+                <button type="submit" class="btn btn-secondary mx-2 my-2" (click)="showAgencyEditForm()">Back to Agency Information</button>
+            </div>
+        </form>
+    </div>
+</div>
