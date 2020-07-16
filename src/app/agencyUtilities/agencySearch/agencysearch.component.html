@@ -201,11 +201,12 @@
                     <select  class="form-control" (change)="onIndicatorNameSelect()" id="dropdownIndicators">
                         <option *ngFor="let indicator of agencyIndicators" [ngValue]="indicator">
                             {{indicator.name}}
+                            {{indicator.businessSystem}}
                         </option>
                     </select>
                 </div>                
             </div>
-
+           
 
 
             <!-- <select class="form-control"  [(ngModel)]="agencyIndicators">

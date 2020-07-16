@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router'
 //local dependencies
 import { AgencyInformationService } from '../../rest.service'
 import { AgencyInt, Hero, AgencyInformation } from '../../models/agency.information.model';
-import { AgencyIndicators, Topic } from '../../models/agency.indicators.model';
+import { AgencyIndicators } from '../../models/agency.indicators.model';
 
 
 @Component({
@@ -24,7 +24,6 @@ export class AgencySearchComponent implements OnInit {
 
   agencyInformation: AgencyInformation[];
   agencyIndicators: AgencyIndicators[];
-  _topics: Topic;
   editField : string;
   indicatorsList: [ 'commercialPackageAnnual', 'commercialPackageMultiYear', 'commercialEdocsPolicyPdf', 
   'commercialEdocsOden', 'commercialOdenEmessagesOnly', 'crimeAndInlandMarine', 'commercialWorkersCompensation', 'customerCarePackageAnnual'];
@@ -70,14 +69,14 @@ export class AgencySearchComponent implements OnInit {
     this.indicatorsForm = this.formBuilder.group({
       name: [''],
       transactionTypes: [''],
-      topics: [''],
       multiyear: [''],
-      documentFormat: ['']
-    })
+      documentFormat: [''],
+      eclasTopics: this.formBuilder.array([]),
+      evolveTopics: this.formBuilder.array([])
     //service call 
     //this.user = this.agencyService.loadUser();
+    })
   }
-
   //convenience getter for easy access to form fields
   get f() { return this.editForm.controls; }
 
